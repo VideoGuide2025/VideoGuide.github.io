@@ -2,6 +2,31 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.results-small {
+  overflow: hidden;
+  /* height: 400px; */
+  /* height: 100%; */
+}
+
+.results-small .item {
+  margin: 5px;
+  overflow: hidden;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0;
+  font-size: 0;
+}
+
+.results-small .desc {
+  background-color: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-size: 14px;
+  padding: 3px 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 128;
+}
 
 .footer .icon-link {
     font-size: 25px;
