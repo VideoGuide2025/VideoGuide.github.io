@@ -1,0 +1,875 @@
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete"><head>
+    <meta charset="utf-8">
+    <meta name="description" content="FreeInit: Bridging Initialization Gap in Video Diffusion Models">
+    <meta name="keywords" content="FreeInit, Video Diffusion Models, Text-to-Video, Stable Diffusion, AIGC, Video Generation">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FreeInit: Bridging Initialization Gap in Video Diffusion Models</title>
+  
+  <!--   Global site tag (gtag.js) - Google Analytics-->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5ZVQZ7NHC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+  
+      gtag('js', new Date());
+  
+      gtag('config', 'G-Y5ZVQZ7NHC');
+    </script> -->
+  
+    <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}</style><link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  
+    <link rel="stylesheet" href="./assets/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./assets/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer="" src="./assets/js/fontawesome.all.min.js"></script>
+    <script src="./assets/js/bulma-carousel.min.js"></script>
+    <script src="./assets/js/bulma-slider.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  
+    <!-- custom css file  -->
+    <link rel="stylesheet" href="./assets/css/twentytwenty.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script></head>
+  <body>
+  
+  <!-- title -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="color:#ff9b9b; font-weight: bold; font-style: italic">FreeInit</span> : Bridging Initialization Gap <br>in Video Diffusion Models</h1>
+            <!-- <h1 class="title is-1 publication-title"><span style="color:#EBC1A8; font-weight: bold; font-style: italic">FreeInit</span> : Bridging Initialization Gap <br>in Video Diffusion Models</h1> -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+  
+  
+                <span class="author-block">
+                    <a href="https://tianxingwu.github.io" target="_blank">Tianxing Wu</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://chenyangsi.github.io/" target="_blank">Chenyang Si</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://yumingj.github.io/" target="_blank">Yuming Jiang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://ziqihuangg.github.io" target="_blank">Ziqi Huang</a>,
+                </span>
+                <span class="author-block">
+                  <a href="https://liuziwei7.github.io/" target="_blank">Ziwei Liu</a><sup>†</sup>
+                </span>
+            </span></div>
+  
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">S-Lab, Nanyang Technological University</span>
+          </div>
+  
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2312.07537" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/TianxingWu/FreeInit" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                  </span>
+                  <span>GitHub</span>
+                </a>
+              </span>
+              <!-- Demo Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/TianxingWu/FreeInit" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <!-- <span class="icon">
+                    <img src="./assets/images/hf.png">
+                  </span> -->
+                  <span>🤗 Demo</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/lS5IYbAqriI" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg><!-- <i class="fab fa-youtube"></i> Font Awesome fontawesome.com -->
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+  
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- first row -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+        <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div id="results-small" class="carousel results-small">
+  
+          
+  
+          
+  
+          
+  
+          
+  
+          
+  
+          
+  
+          
+  
+        <div id="sliderfa97823f-9735-4b12-80c0-df6f5405ea5d" class="slider" tabindex="0">
+      <div class="slider-container" style="opacity: 1; width: 9408px; transition: none; transform: translate3d(-1792px, 0px, 0px);"><div class="slider-item" data-slider-index="-4" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="-3" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="2" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="3" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="4" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="5" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="6" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">ModelScope+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="13" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="14" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="15" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div><div class="slider-item" data-slider-index="16" data-cloned="true" style="width: 448px;"><div class="item">
+            <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+              <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+              <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+                <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+                <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+              <!-- </div> -->
+            <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+          </div></div></div>
+    <div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+      </svg></div>
+  <div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+      </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div><div class="slider-page" data-index="5"></div><div class="slider-page" data-index="6"></div></div></div></div>
+    </div>
+  </div></section>
+  
+  <!-- teaser -->
+  <section class="hero teaser is-light">
+    <div class="container is-max-desktop ">
+      <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              We propose <b>FreeInit</b>, a concise yet effective method to improve temporal consistency of videos generated by diffusion models. FreeInit requires no additional training and introduces no learnable parameters, and can be easily incorporated into arbitrary video diffusion models at inference time.
+            </p>
+          </div>
+        </div>
+      </div>
+  </div></section>
+  
+  
+  <!-- Paper video. -->
+  <section class="hero is-small">
+    <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 20px;">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/lS5IYbAqriI?si=4f76eH6K9A4QQUN1" frameborder="10" allow="autoplay; encrypted-media" width="50%" allowfullscreen=""></iframe>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  <!-- / Paper video.   -->
+  
+  <!-- Abstract. -->
+  <section class="hero is-light">
+    <div class="container is-max-desktop ">
+      <div class="columns is-centered has-text-centered" style="margin-top: 10px; margin-bottom: 0px;">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Though diffusion-based video generation has witnessed rapid progress, the inference results of existing models still exhibit unsatisfactory temporal consistency and unnatural dynamics. In this paper, we delve deep into the noise initialization of video diffusion models, and discover an implicit training-inference gap that attributes to the inference quality drop. Our key findings are: <b>1)</b> the spatial-temporal frequency distribution of the initial latent's signal-to-noise ratio (SNR) at inference is intrinsically different from training, and <b>2)</b> the denoising process is significantly influenced by the low-frequency component of the initial noise. Motivated by these observations, we propose a concise yet effective inference sampling strategy, <b>FreeInit</b>, which significantly improves temporal consistency of videos generated by diffusion models. Through iteratively refining the spatial-temporal low-frequency component of the initial latent during inference, FreeInit is able to compensate the initialization gap between training and inference, thus effectively improving the subject appearance and temporal consistency of generation results. Extensive experiments demonstrate that FreeInit consistently enhances the generation results of various text-to-video generation models without additional training.
+            </p>
+          </div>
+        </div>
+      </div>
+  </div></section>
+  <!--/ Abstract. -->
+  
+  <!--/ Framework. -->
+  <section class="section" style="margin-top:-50px; margin-bottom:-50px;">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+          <div class="section-title">
+            <h2 class="title is-3 is-centered">FreeInit Framework</h2>
+          </div>
+          <div class="columns is-centered has-text-centered">
+            <div class="column">
+              <div class="publication-img">
+                <img id="architecture" src="./assets/images/pipeline.png" style="width:1000px; margin-top:10px;margin-bottom:10px;">
+              </div>
+            </div>
+          </div>
+          <p>
+            We propose FreeInit to bridge the <b>initialization gap</b> between training and inference of video diffusion models. FreeInit refines the inference initial noise in an iterative manner. Through <b>DDIM Sampling</b>, <b>DDPM Forward</b> and <b>Noise Reinitialization</b>, the <em>low frequency components</em> of initial noise is gradually refined, consistently enhancing the temporal consistency and subject appearance.
+          </p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- AnimateDiff Results -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+  
+  
+      <div class="container is-max-desktop" style="margin-top:30px;">
+  
+        <div class="section-title">
+          <h2 class="title is-3">AnimateDiff</h2>
+        </div>
+  
+        <h2 class="subtitle has-text-centered">Videos generated by AnimateDiff before and after FreeInit.</h2>
+  
+        <div id="results-AnimateDiff" class="carousel results-carousel">
+          
+          
+          
+          
+          
+          
+  
+  
+  
+  
+        <div id="slider464234dc-85f6-40a9-9ca6-0c6e3f9bee24" class="slider" tabindex="0">
+      <div class="slider-container" style="opacity: 1; width: 14400px; transition: none; transform: translate3d(-1920px, 0px, 0px);"><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="2" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="3" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="4" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="5" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="6" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/animatediff_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div></div>
+    <div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+      </svg></div>
+  <div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+      </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div><div class="slider-page" data-index="5"></div></div></div></div>
+      </div>    
+  </div></section>
+  
+  <!-- ModelScope Results -->
+  <section class="hero is-small">
+    <div class="hero-body">
+  
+  
+      <div class="container is-max-desktop" style="margin-top:30px;">
+  
+        <div class="section-title">
+          <h2 class="title is-3">ModelScope</h2>
+        </div>
+  
+        <h2 class="subtitle has-text-centered">Videos generated by ModelScope before and after FreeInit.</h2>
+  
+        <div id="results-ModelScope" class="carousel results-carousel">
+          
+          
+          
+          
+          
+          
+  
+  
+        <div id="slider0bc3b6ab-abb3-4f39-b858-803378807a56" class="slider" tabindex="0">
+      <div class="slider-container" style="opacity: 1; width: 14400px; transition: none; transform: translate3d(-1920px, 0px, 0px);"><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="2" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="3" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="4" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="5" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="6" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/modelscope_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div></div>
+    <div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+      </svg></div>
+  <div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+      </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div><div class="slider-page" data-index="5"></div></div></div></div>
+      </div>    
+  </div></section>
+  
+  
+  <!-- VideoCrafter Results -->
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+  
+  
+      <div class="container is-max-desktop" style="margin-top:30px;">
+  
+        <div class="section-title">
+          <h2 class="title is-3">VideoCrafter</h2>
+        </div>
+  
+        <h2 class="subtitle has-text-centered">Videos generated by VideoCrafter before and after FreeInit.</h2>
+  
+        <div id="results-VideoCrafter" class="carousel results-carousel">
+          
+          
+          
+          
+          
+          
+  
+  
+        <div id="slider55880528-89d6-4372-a2c3-64ec3f26307b" class="slider" tabindex="0">
+      <div class="slider-container" style="opacity: 1; width: 14400px; transition: none; transform: translate3d(-1920px, 0px, 0px);"><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="2" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="3" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="4" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="5" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="6" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_1.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_3.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_4.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_5.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_6.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 960px;"><div class="item">
+            <div class="video">
+              <video muted="" autoplay="autoplay" loop="loop" width="100%">
+                <source src="./assets/videos/videocrafter_results_2.mp4" type="video/mp4">
+              </video> 
+            </div>
+          </div></div></div>
+    <div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+      </svg></div>
+  <div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+        <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+      </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div><div class="slider-page" data-index="5"></div></div></div></div>
+      </div>    
+  </div></section>
+  
+  
+  
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Related Links</h2>
+      <p>Check out <a href="https://chenyangsi.top/FreeU/">FreeU</a> and <a href="http://haonanqiu.com/projects/FreeNoise.html">FreeNoise</a> 
+        for more tuning-free add-ons to Image and Video Diffusion Models! :)
+      </p>
+  
+      <h2 class="title">BibTeX</h2>
+      <p>If you find our work useful, please consider citing our paper:</p>
+      <pre><code>
+        @inproceedings{wu2023freeinit,
+          title={FreeInit: Bridging Initialization Gap in Video Diffusion Models},
+          author={Wu, Tianxing and Si, Chenyang and Jiang, Yuming and Huang, Ziqi and Liu, Ziwei},
+          booktitle={European Conference on Computer Vision (ECCV)},
+          year={2024},
+        }
+      </code></pre>
+    </div>
+  </section>
+  
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2312.07537">
+          <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+        </a>
+        <a class="icon-link" href="https://github.com/TianxingWu/FreeInit" disabled="">
+          <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+        </a>
+        <a class="icon-link" href="https://youtu.be/lS5IYbAqriI">
+          <svg class="svg-inline--fa fa-youtube fa-w-18" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg><!-- <i class="fab fa-youtube"></i> Font Awesome fontawesome.com -->
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" ,="" style="width: 20%">
+      <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=P8Xfm_38OsgZnaqtwbnM9AC8Lhe2MQpZ4lIswi1SB3Y&amp;cl=ffffff&amp;w=a"></script><a target="_top" href="http://clustrmaps.com/site/1bxoq?utm_source=widget&amp;utm_campaign=widget_ctr" id="clustrmaps-widget-v2" class="clustrmaps-map-control" style="width: 357px;"><div class="clustrmaps-map-container" style="background-color: rgb(45, 120, 173);"><div class="clstm clustrmaps-visitors" style="font-size: 12px; line-height: 16px; color: rgb(255, 255, 255);">203 Pageviews</div><div class="clstm clustrmaps-date" style="font-size: 12px; line-height: 16px; color: rgb(255, 255, 255);">Sep. 01st - Oct. 01st</div><div class="clustrmaps-map" style="width: 357px; height: 175px; background-image: url(&quot;//clustrmaps.com/generated_content/backs/bg-w_357-cl_ffffff.png&quot;);"><div class="jvectormap-container" style="background-color: transparent;"><svg width="357" height="175"><defs></defs><g transform="scale(0.33055555555555555) translate(90, 44.35272698087472)"></g><g></g><g style="visibility: visible;"><circle data-index="0" cx="87.92923716986961" cy="76.03032093143788" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="4" class="jvectormap-marker jvectormap-element"></circle><circle data-index="1" cx="263.03221496366484" cy="78.84968899984737" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="4" class="jvectormap-marker jvectormap-element"></circle><circle data-index="2" cx="254.86104726752987" cy="107.76370029973428" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="3" class="jvectormap-marker jvectormap-element"></circle><circle data-index="3" cx="274.0278939135899" cy="76.27571897711405" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="3" class="jvectormap-marker jvectormap-element"></circle><circle data-index="4" cx="263.39649447450563" cy="90.1135467204819" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="3" class="jvectormap-marker jvectormap-element"></circle><circle data-index="5" cx="254.81577099113142" cy="107.70260404004541" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="3" class="jvectormap-marker jvectormap-element"></circle><circle data-index="6" cx="274.02706619372884" cy="76.47491633555558" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="3" class="jvectormap-marker jvectormap-element"></circle><circle data-index="7" cx="274.00091024612016" cy="76.17628173615682" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="8" cx="283.1237902384712" cy="77.69561986493792" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="9" cx="287.43654180239923" cy="137.62716704281405" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="10" cx="265.23535691777715" cy="73.92551137151479" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="11" cx="104.88019497595725" cy="74.86579478757429" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="12" cx="267.2131935257164" cy="81.36224868819973" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="13" cx="274.132931563955" cy="76.3291320453005" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="14" cx="268.790910352832" cy="88.4572579186084" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="15" cx="170.8435910893002" cy="64.83149904490298" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="16" cx="112.61349886560554" cy="85.04375662486693" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="17" cx="269.49273402300213" cy="87.66530962967866" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="18" cx="255.6055812825294" cy="81.91426442400956" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="19" cx="274.00231736988394" cy="76.20353967222695" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="20" cx="284.5889371644863" cy="77.98092314662827" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="21" cx="67.61359812868147" cy="76.2074604728125" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="22" cx="90.26506261770567" cy="52.074258827290755" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="23" cx="213.89578422122673" cy="88.1790879924127" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="24" cx="265.48897028319783" cy="74.33366746125166" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="25" cx="168.82056097694863" cy="61.95667633235031" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="26" cx="100.17824953337133" cy="73.89000028146106" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="27" cx="175.26096644366285" cy="68.78999114459918" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="28" cx="105.49783953626032" cy="74.50934688736268" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="29" cx="67.65970212494105" cy="66.15131819994525" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="30" cx="104.71787911120862" cy="74.81054512034387" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="31" cx="263.37936067338217" cy="90.08789962724845" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="32" cx="210.97848557101477" cy="84.17432403532231" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="33" cx="186.74508288358368" cy="48.095272391627326" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="34" cx="230.37047201927578" cy="89.60579357193272" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="35" cx="253.13276819769231" cy="106.30860844184988" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="36" cx="263.4102346241988" cy="90.05555336496185" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="37" cx="273.79679452838934" cy="76.31480173926045" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="38" cx="167.68509487158312" cy="59.87660319496344" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="39" cx="170.9207345803485" cy="64.82702004126978" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="40" cx="101.24650478602094" cy="85.02388032399486" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="41" cx="106.5329032224825" cy="74.10601476989879" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="42" cx="75.83310466470076" cy="75.96153710895302" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="43" cx="194.16766073740007" cy="63.11790873557077" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="44" cx="239.22707453233244" cy="56.29199389905942" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="45" cx="265.8879312562159" cy="74.69027756060105" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="46" cx="263.46544353892966" cy="90.18594886454684" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="47" cx="284.5414260444629" cy="78.05930406615906" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="48" cx="272.6306200161795" cy="70.00162421407713" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="49" cx="101.18384639254072" cy="85.44137789731307" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="50" cx="91.4133583809172" cy="72.28187020855478" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="51" cx="71.00890499864022" cy="79.5246352862779" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="52" cx="69.96192214641914" cy="68.06216236017097" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="53" cx="201.79203669333634" cy="58.472298009476795" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="54" cx="186.31499964379077" cy="61.11320718101745" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="55" cx="257.169640731938" cy="99.84858075342676" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="56" cx="269.02887981287904" cy="87.8793621130174" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="57" cx="269.38463380915124" cy="82.29273682822787" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="58" cx="262.63772367789636" cy="89.35860766845317" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="59" cx="263.424057545878" cy="89.99762959642125" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="60" cx="263.3826715528263" cy="90.08459568703903" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="61" cx="273.9774857740529" cy="76.23863099937554" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="62" cx="284.5627812168776" cy="78.08746013242842" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="63" cx="283.7413520267882" cy="138.5933601555787" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="64" cx="183.85418849693866" cy="52.899524777397566" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="65" cx="88.81754612473057" cy="80.37120281935242" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="66" cx="110.03159230308428" cy="71.48644816285578" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="67" cx="67.8547129242005" cy="76.36189418189409" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="68" cx="191.51779837428793" cy="59.468457681730996" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="69" cx="188.76372608067177" cy="56.877283791528335" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="70" cx="232.6378450346044" cy="92.05464567769512" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="71" cx="256.51259670624967" cy="91.16844358591376" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="72" cx="252.93966115411325" cy="106.28383693810967" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="73" cx="263.3688486311471" cy="90.02659365279523" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="74" cx="274.07085257437745" cy="76.2751455400089" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="75" cx="254.73564770858334" cy="107.71808518170582" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="76" cx="176.9061424394527" cy="61.02074852771219" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="77" cx="180.69047764409711" cy="73.01720542536975" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="78" cx="90.49756912666993" cy="74.62069303862553" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="79" cx="107.60844240990922" cy="73.15028351826003" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="80" cx="67.89270526582192" cy="76.23824858863432" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle><circle data-index="81" cx="67.13029250182413" cy="64.41467682446455" fill="#FF0000" stroke="#ffffff" fill-opacity="0.7" stroke-width="0.5" stroke-opacity="1" r="2" class="jvectormap-marker jvectormap-element"></circle></g><g></g></svg><div class="jvectormap-legend-cnt jvectormap-legend-cnt-h"></div><div class="jvectormap-legend-cnt jvectormap-legend-cnt-v"></div></div></div><div id="clstminf" style="display: table-cell;position: absolute;bottom: 3px;right: 5px;color: white;font-size: 12px;font-family: sans-serif;"></div></div><div class=""></div></a><style type="text/css">.jvectormap-container {    width: 100%;    height: 100%;    position: absolute;    overflow: hidden;}.jvectormap-tip {    position: absolute;    display: none;    border: solid 1px #CDCDCD;    border-radius: 3px;    background: #292929;    color: white;    font-family: Arial, Helvetica, sans-serif;    padding: 3px;    z-index: 9999;    font-size: 11px;    line-height: 13px;}.jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {    background: #ffffff none repeat scroll 0 0;    border: 1px solid #bebebe;    border-radius: 2px;    box-sizing: content-box;    color: #838383;    cursor: pointer;    font-weight: bold;    left: 10px;    padding: 3px;    position: absolute;    text-align: center;    z-index: 1;}.jvectormap-zoomin, .jvectormap-zoomout {    padding: 2px 10px;}.jvectormap-zoomin {    top: 10px;}.jvectormap-zoomout {    top: 37px;}.jvectormap-goback {    bottom: 10px;    z-index: 1000;    padding: 6px;}.jvectormap-spinner {    position: absolute;    left: 0;    top: 0;    right: 0;    bottom: 0;    background: center no-repeat url(data:image/gif;base64,R0lGODlhIAAgAPMAAP///wAAAMbGxoSEhLa2tpqamjY2NlZWVtjY2OTk5Ly8vB4eHgQEBAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAIAAgAAAE5xDISWlhperN52JLhSSdRgwVo1ICQZRUsiwHpTJT4iowNS8vyW2icCF6k8HMMBkCEDskxTBDAZwuAkkqIfxIQyhBQBFvAQSDITM5VDW6XNE4KagNh6Bgwe60smQUB3d4Rz1ZBApnFASDd0hihh12BkE9kjAJVlycXIg7CQIFA6SlnJ87paqbSKiKoqusnbMdmDC2tXQlkUhziYtyWTxIfy6BE8WJt5YJvpJivxNaGmLHT0VnOgSYf0dZXS7APdpB309RnHOG5gDqXGLDaC457D1zZ/V/nmOM82XiHRLYKhKP1oZmADdEAAAh+QQJCgAAACwAAAAAIAAgAAAE6hDISWlZpOrNp1lGNRSdRpDUolIGw5RUYhhHukqFu8DsrEyqnWThGvAmhVlteBvojpTDDBUEIFwMFBRAmBkSgOrBFZogCASwBDEY/CZSg7GSE0gSCjQBMVG023xWBhklAnoEdhQEfyNqMIcKjhRsjEdnezB+A4k8gTwJhFuiW4dokXiloUepBAp5qaKpp6+Ho7aWW54wl7obvEe0kRuoplCGepwSx2jJvqHEmGt6whJpGpfJCHmOoNHKaHx61WiSR92E4lbFoq+B6QDtuetcaBPnW6+O7wDHpIiK9SaVK5GgV543tzjgGcghAgAh+QQJCgAAACwAAAAAIAAgAAAE7hDISSkxpOrN5zFHNWRdhSiVoVLHspRUMoyUakyEe8PTPCATW9A14E0UvuAKMNAZKYUZCiBMuBakSQKG8G2FzUWox2AUtAQFcBKlVQoLgQReZhQlCIJesQXI5B0CBnUMOxMCenoCfTCEWBsJColTMANldx15BGs8B5wlCZ9Po6OJkwmRpnqkqnuSrayqfKmqpLajoiW5HJq7FL1Gr2mMMcKUMIiJgIemy7xZtJsTmsM4xHiKv5KMCXqfyUCJEonXPN2rAOIAmsfB3uPoAK++G+w48edZPK+M6hLJpQg484enXIdQFSS1u6UhksENEQAAIfkECQoAAAAsAAAAACAAIAAABOcQyEmpGKLqzWcZRVUQnZYg1aBSh2GUVEIQ2aQOE+G+cD4ntpWkZQj1JIiZIogDFFyHI0UxQwFugMSOFIPJftfVAEoZLBbcLEFhlQiqGp1Vd140AUklUN3eCA51C1EWMzMCezCBBmkxVIVHBWd3HHl9JQOIJSdSnJ0TDKChCwUJjoWMPaGqDKannasMo6WnM562R5YluZRwur0wpgqZE7NKUm+FNRPIhjBJxKZteWuIBMN4zRMIVIhffcgojwCF117i4nlLnY5ztRLsnOk+aV+oJY7V7m76PdkS4trKcdg0Zc0tTcKkRAAAIfkECQoAAAAsAAAAACAAIAAABO4QyEkpKqjqzScpRaVkXZWQEximw1BSCUEIlDohrft6cpKCk5xid5MNJTaAIkekKGQkWyKHkvhKsR7ARmitkAYDYRIbUQRQjWBwJRzChi9CRlBcY1UN4g0/VNB0AlcvcAYHRyZPdEQFYV8ccwR5HWxEJ02YmRMLnJ1xCYp0Y5idpQuhopmmC2KgojKasUQDk5BNAwwMOh2RtRq5uQuPZKGIJQIGwAwGf6I0JXMpC8C7kXWDBINFMxS4DKMAWVWAGYsAdNqW5uaRxkSKJOZKaU3tPOBZ4DuK2LATgJhkPJMgTwKCdFjyPHEnKxFCDhEAACH5BAkKAAAALAAAAAAgACAAAATzEMhJaVKp6s2nIkolIJ2WkBShpkVRWqqQrhLSEu9MZJKK9y1ZrqYK9WiClmvoUaF8gIQSNeF1Er4MNFn4SRSDARWroAIETg1iVwuHjYB1kYc1mwruwXKC9gmsJXliGxc+XiUCby9ydh1sOSdMkpMTBpaXBzsfhoc5l58Gm5yToAaZhaOUqjkDgCWNHAULCwOLaTmzswadEqggQwgHuQsHIoZCHQMMQgQGubVEcxOPFAcMDAYUA85eWARmfSRQCdcMe0zeP1AAygwLlJtPNAAL19DARdPzBOWSm1brJBi45soRAWQAAkrQIykShQ9wVhHCwCQCACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiRMDjI0Fd30/iI2UA5GSS5UDj2l6NoqgOgN4gksEBgYFf0FDqKgHnyZ9OX8HrgYHdHpcHQULXAS2qKpENRg7eAMLC7kTBaixUYFkKAzWAAnLC7FLVxLWDBLKCwaKTULgEwbLA4hJtOkSBNqITT3xEgfLpBtzE/jiuL04RGEBgwWhShRgQExHBAAh+QQJCgAAACwAAAAAIAAgAAAE7xDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfZiCqGk5dTESJeaOAlClzsJsqwiJwiqnFrb2nS9kmIcgEsjQydLiIlHehhpejaIjzh9eomSjZR+ipslWIRLAgMDOR2DOqKogTB9pCUJBagDBXR6XB0EBkIIsaRsGGMMAxoDBgYHTKJiUYEGDAzHC9EACcUGkIgFzgwZ0QsSBcXHiQvOwgDdEwfFs0sDzt4S6BK4xYjkDOzn0unFeBzOBijIm1Dgmg5YFQwsCMjp1oJ8LyIAACH5BAkKAAAALAAAAAAgACAAAATwEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GGl6NoiPOH16iZKNlH6KmyWFOggHhEEvAwwMA0N9GBsEC6amhnVcEwavDAazGwIDaH1ipaYLBUTCGgQDA8NdHz0FpqgTBwsLqAbWAAnIA4FWKdMLGdYGEgraigbT0OITBcg5QwPT4xLrROZL6AuQAPUS7bxLpoWidY0JtxLHKhwwMJBTHgPKdEQAACH5BAkKAAAALAAAAAAgACAAAATrEMhJaVKp6s2nIkqFZF2VIBWhUsJaTokqUCoBq+E71SRQeyqUToLA7VxF0JDyIQh/MVVPMt1ECZlfcjZJ9mIKoaTl1MRIl5o4CUKXOwmyrCInCKqcWtvadL2SYhyASyNDJ0uIiUd6GAULDJCRiXo1CpGXDJOUjY+Yip9DhToJA4RBLwMLCwVDfRgbBAaqqoZ1XBMHswsHtxtFaH1iqaoGNgAIxRpbFAgfPQSqpbgGBqUD1wBXeCYp1AYZ19JJOYgH1KwA4UBvQwXUBxPqVD9L3sbp2BNk2xvvFPJd+MFCN6HAAIKgNggY0KtEBAAh+QQJCgAAACwAAAAAIAAgAAAE6BDISWlSqerNpyJKhWRdlSAVoVLCWk6JKlAqAavhO9UkUHsqlE6CwO1cRdCQ8iEIfzFVTzLdRAmZX3I2SfYIDMaAFdTESJeaEDAIMxYFqrOUaNW4E4ObYcCXaiBVEgULe0NJaxxtYksjh2NLkZISgDgJhHthkpU4mW6blRiYmZOlh4JWkDqILwUGBnE6TYEbCgevr0N1gH4At7gHiRpFaLNrrq8HNgAJA70AWxQIH1+vsYMDAzZQPC9VCNkDWUhGkuE5PxJNwiUK4UfLzOlD4WvzAHaoG9nxPi5d+jYUqfAhhykOFwJWiAAAIfkECQoAAAAsAAAAACAAIAAABPAQyElpUqnqzaciSoVkXVUMFaFSwlpOCcMYlErAavhOMnNLNo8KsZsMZItJEIDIFSkLGQoQTNhIsFehRww2CQLKF0tYGKYSg+ygsZIuNqJksKgbfgIGepNo2cIUB3V1B3IvNiBYNQaDSTtfhhx0CwVPI0UJe0+bm4g5VgcGoqOcnjmjqDSdnhgEoamcsZuXO1aWQy8KAwOAuTYYGwi7w5h+Kr0SJ8MFihpNbx+4Erq7BYBuzsdiH1jCAzoSfl0rVirNbRXlBBlLX+BP0XJLAPGzTkAuAOqb0WT5AH7OcdCm5B8TgRwSRKIHQtaLCwg1RAAAOwAAAAAAAAAAAA==);}.jvectormap-legend-title {    font-weight: bold;    font-size: 14px;    text-align: center;}.jvectormap-legend-cnt {    position: absolute;}.jvectormap-legend-cnt-h {    bottom: 0;    right: 0;}.jvectormap-legend-cnt-v {    top: 0;    right: 0;}.jvectormap-legend {    background: black;    color: white;    border-radius: 3px;}.jvectormap-legend-cnt-h .jvectormap-legend {    float: left;    margin: 0 10px 10px 0;    padding: 3px 3px 1px 3px;}.jvectormap-legend-cnt-h .jvectormap-legend .jvectormap-legend-tick {    float: left;}.jvectormap-legend-cnt-v .jvectormap-legend {    margin: 10px 10px 0 0;    padding: 3px;}.jvectormap-legend-cnt-h .jvectormap-legend-tick {    width: 40px;}.jvectormap-legend-cnt-h .jvectormap-legend-tick-sample {    height: 15px;}.jvectormap-legend-cnt-v .jvectormap-legend-tick-sample {    height: 20px;    width: 20px;    display: inline-block;    vertical-align: middle;}.jvectormap-legend-tick-text {    font-size: 12px;}.jvectormap-legend-cnt-h .jvectormap-legend-tick-text {    text-align: center;}.jvectormap-legend-cnt-v .jvectormap-legend-tick-text {    display: inline-block;    vertical-align: middle;    line-height: 20px;    padding-left: 3px;}</style><style type="text/css">a#clustrmaps-widget-v2, #clustrmaps-widget-v2 {    display: block;    font-size: 11px;    line-height: 13px;    margin: 0 auto;    padding: 0;    position: relative;    text-align: center;    color: transparent;    min-height: 139px;    text-decoration: none;    /* text-shadow: 1px 1px 0 #01324f; */    border: 0 none;}.clustrmaps-map {    position: relative;}#clustrmaps-widget-v2 > .clustrmaps-map-container {    background-position: 0 0;    background-repeat: no-repeat;    position: relative;}#clustrmaps-widget-v2 > .clustrmaps-map-container > .clustrmaps-date {    text-align: center;    width: 100%;    z-index: 10;}#clustrmaps-widget-v2 > .clustrmaps-map-container > .clustrmaps-logo {    position: absolute;    background-image: url("//clustrmaps.com/assets/clustrmaps/img/logo4-small.png");    bottom: 0px;    background-repeat: no-repeat;    background-position: center center;    z-index: 1;    width: 100px;    height: 31px;    left: 0px;}#clustrmaps-widget-v2 > .clustrmaps-map-container > .clustrmaps-connection {    background-position: center center;    background-repeat: no-repeat;    bottom: 0;    color: rgba(255, 255, 255, 0.5);    padding: 4px 4px;    position: absolute;    right: 0;    z-index: 1;    font-variant: small-caps;}#clustrmaps-widget-v2 > .clustrmaps-bottom-text {    letter-spacing: 0px;    background: #FFFFFF;    color: #000000;    text-shadow: none;}#clustrmaps-widget-v2 > .clustrmaps-cursor-click {    background-position: center center;    background-repeat: no-repeat;    display: block;    height: 29px;    position: absolute;    right: 0;    top: 56px;    width: 30px;}#clustrmaps-widget-v2 > .clustrmaps-map-container > .clustrmaps-connection.clustrmaps-failed {    color: rgba(255, 0, 0, 0.8);}/*#clustrmaps-widget-v2 > .clustrmaps-map-container {    background-image: url("//clustrmaps.com/images/map_v2_loading.png");}*/#clustrmaps-widget-v2 > .clustrmaps-cursor-click {    background-image: url("//clustrmaps.com/assets/clustrmaps/img/cursor_click.png");}#clustrmaps-widget-v2 > .clustrmaps-bottom-text.variation {    display: none;}/* CONTROL *//*#clustrmaps-widget-v2.clustrmaps-map-control > .clustrmaps-map-container {    background-image: url("//clustrmaps.com/images/map_v2-control.png");}*/#clustrmaps-widget-v2.clustrmaps-map-control > .clustrmaps-bottom-text {    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;    border: 1px solid #999;    background: #F24D58;    background: -moz-linear-gradient(top, #FF636D 50%, #DD2929 50%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#f83737), color-stop(50%,#f83737));    background: linear-gradient(to bottom, #FF636D 50%,#DD2929 51%);    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#FF636D", endColorstr="#f83737",GradientType=0 );    display: block;    margin: 2px auto 0;    padding: 3px 14px;    color: #FFFFFF;    text-shadow: 1px 1px 0px #5B0000;    font-weight: 600;}#clustrmaps-widget-v2.clustrmaps-map-control  > .clustrmaps-bottom-text:hover {    border: 1px solid #888;    background: #a3f5a2;    background: -moz-linear-gradient(top,  #ed8b92 50%, #D76666 50%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#ed8b92), color-stop(50%,#D76666));    background: linear-gradient(to bottom, #ed8b92 50%,#D76666 51%);    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ed8b92", endColorstr="#D76666",GradientType=0 );}#clustrmaps-widget-v2.clustrmaps-map-control > .clustrmaps-bottom-text.variation {    display: none;}.clstm {    text-transform: capitalize !important;    position: relative;}#clustrmaps-widget-v2.clustrmaps-map-variation > .clustrmaps-bottom-text {    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;    border: 1px solid #999;    background: #F24D58;    background: -moz-linear-gradient(top, #FF636D 50%, #DD2929 50%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#f83737), color-stop(50%,#f83737));    background: linear-gradient(to bottom, #FF636D 50%,#DD2929 51%);    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#FF636D", endColorstr="#f83737",GradientType=0 );    display: block;    margin: 2px auto 0;    padding: 3px 14px;    color: #FFFFFF;    text-shadow: 1px 1px 0px #5B0000;    font-weight: 600;}#clustrmaps-widget-v2.clustrmaps-map-variation > .clustrmaps-bottom-text {    display: none;}#clustrmaps-widget-v2.clustrmaps-map-variation > .clustrmaps-bottom-text.variation {    display: block;}#clustrmaps-widget-v2.clustrmaps-map-variation  > .clustrmaps-bottom-text:hover {    border: 1px solid #888;    background: #a3f5a2;    background: -moz-linear-gradient(top,  #ed8b92 50%, #D76666 50%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#ed8b92), color-stop(50%,#D76666));    background: linear-gradient(to bottom, #ed8b92 50%,#D76666 51%);    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ed8b92", endColorstr="#D76666",GradientType=0 );}.clustrmaps-visitors, .clustrmaps-date, .clustrmaps-bottom-text {    font-family: Arial, Helvetica, sans-serif;    text-align: center;    font-weight: normal;}.clustrmaps-bottom-text {    font-size: 12px;}</style>
+    </div>
+  </footer>
+  
+  <!-- custom js file  -->
+  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
+  <script src="./assets/js/bulma-carousel.min.js"></script>
+  <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/js/jquery.event.move.js"></script>
+  <script src="./assets/js/jquery.twentytwenty.js"></script>
+  <script>
+  $(function(){
+    $(".twentytwenty-container").twentytwenty();
+    // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
+  });
+  $(function(){
+    $(".twentytwenty-container").twentytwenty({
+      default_offset_pct: 0.5, // How much of the before image is visible when the page loads
+      orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
+      // before_label: 'January 2017', // Set a custom before label
+      // after_label: 'March 2017', // Set a custom after label
+      // no_overlay: true, //Do not show the overlay with before and after
+      // move_slider_on_hover: true, // Move slider on mouse hover?
+      // move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement. 
+      // click_to_move: false // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
+    });
+  });
+  </script>
+  
+  <script>
+    bulmaCarousel.attach('#results-AnimateDiff', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+    });
+    bulmaCarousel.attach('#results-ModelScope', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+    });
+    bulmaCarousel.attach('#results-VideoCrafter', {
+        slidesToScroll: 1,
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        autoplay: false,
+        autoplaySpeed: 3000,
+    });
+    </script>
+  
+    
+  
+  
+  
+  <div class="jvectormap-tip"></div></body></html>
