@@ -97,7 +97,7 @@
       <div id="results-small" class="carousel results-small">
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">ModelScope+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/4_1.gif" width="100%" />
@@ -107,7 +107,7 @@
         </div>
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/1_1.gif" width="100%" />
@@ -117,7 +117,7 @@
         </div>
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/2_1.gif" width="100%" />
@@ -127,7 +127,7 @@
         </div>
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/3_1.gif" width="100%" />
@@ -137,7 +137,7 @@
         </div>
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/5_1.gif" width="100%" />
@@ -148,7 +148,7 @@
 
 
         <div class="item">
-          <div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556">
+          <div class="twentytwenty-container main-container" data-orientation="horizontal" ratio="0.5556">
             <!-- <div class="desc">ModelScope+FreeInit</div> -->
             <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
               <img src="./static/images/main/6_1.gif" width="100%" />
@@ -692,10 +692,6 @@
 <script src="./static/js/jquery.twentytwenty.js"></script>
 <script>
 $(function(){
-  $(".twentytwenty-container").twentytwenty();
-  // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
-});
-$(function(){
   $(".twentytwenty-container").twentytwenty({
     default_offset_pct: 0.5, // How much of the before image is visible when the page loads
     orientation: 'horizontal', // Orientation of the before and after images ('horizontal' or 'vertical')
@@ -706,6 +702,11 @@ $(function(){
     // move_with_handle_only: true, // Allow a user to swipe anywhere on the image to control slider movement. 
     // click_to_move: false // Allow a user to click (or tap) anywhere on the image to move the slider to that location.
   });
+});
+
+$(function(){
+  $(".twentytwenty-container main-container").twentytwenty({default_offset_pct: 0.1, orientation: 'horizontal'});
+  // $(".twentytwenty-container", "#results-carousel").twentytwenty({default_offset_pct: 0.5, ratio: 0.5});
 });
 </script>
 
