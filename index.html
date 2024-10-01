@@ -190,9 +190,10 @@
         <div class="content has-text-justified">
           <img src="static/images/fig_pipeline.jpg" alt="fig_pipeline"/>
           <p style=" font-size:18px;">
-            In CFG++, the renoising process after applying Tweedie’s formula should utilize the unconditional noise 
-            <span class="eps_null">$ \hat\epsilon_\varnothing $</span> instead of <span class="eps_cfg">$ \hat\epsilon^w_c $</span>. This surprisingly simple fix to the original CFG algorithm 
-            leads to smoother trajectory of generation. This improvement is also demonstrated in the following visualization of the discrete evolution of the posterior mean.
+            VideoGuide enhances temporal quality in video diffusion models without additional training by leveraging a pretrained model as a guide. 
+            During inference, it uses the teacher model to provide a temporally consistent sample, which is interpolated with the student model's 
+            output to improve consistency. This process is applied only in the early inference steps and includes a low-pass filter to refine 
+            high-frequency details. VideoGuide effectively improves temporal consistency while preserving image quality and motion smoothness.
           </p>
       
         </div>
@@ -466,12 +467,12 @@
 
           <div class="item">
             <div class="twentytwenty-container" data-orientation="horizontal" ratio="1">
-              <div class="desc">A cute pomeranian dog playing with a soccer ball.</div>
+              <div class="desc">A zebra taking a peaceful walk.</div>
               <div class="video">
-                <img src="./static/images/toonyou/6_1.gif" width="100%" />
+                <img src="./static/images/film/6_1.gif" width="100%" />
               </div>
               <div class="video">
-                <img src="./static/images/toonyou/6_2.gif" width="100%" />
+                <img src="./static/images/film/6_2.gif" width="100%" />
               </div>
             </div>
           </div>  
