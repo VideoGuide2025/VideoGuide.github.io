@@ -46,66 +46,8 @@
 
   <!-- custom css file  -->
   <link rel="stylesheet" href="twentytwenty.css"> <!-- Include your twentytwenty CSS -->
-  <style>
-      /* Slider container styles */
-      .slider {
-          position: relative;
-          width: 100%;
-          max-width: 1344px;
-          margin: auto;
-      }
-
-      .slider-container {
-          display: flex;
-          transition: transform 0.5s ease;
-      }
-
-      .slider-item {
-          width: 448px;
-          flex-shrink: 0;
-      }
-
-      /* twentytwenty-wrapper custom dimensions */
-      .twentytwenty-container {
-          width: 100%;
-          height: 436px; /* Adjust this to fit your design */
-          display: block; /* Ensure the container is displayed */
-          position: relative;
-      }
-
-      .twentytwenty-before, .twentytwenty-after {
-        display: block; /* Ensure the images are displayed */
-        width: 100%; 
-        height: auto;
-      }
-
-      .slider-item {
-          width: 448px; /* Adjust the width as needed */
-          display: block; /* Make sure each slider item is displayed */
-          flex-shrink: 0;
-      }
-
-
-      /* Navigation styles */
-      .slider-navigation-previous,
-      .slider-navigation-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.5);
-          color: white;
-          cursor: pointer;
-          padding: 10px;
-      }
-
-      .slider-navigation-previous {
-          left: 10px;
-      }
-
-      .slider-navigation-next {
-          right: 10px;
-      }
-  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   
 </head>
 <body>
@@ -153,171 +95,187 @@
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
+      <!-- <div id="results-carousel" class="carousel results-carousel"> -->
       <div id="results-small" class="carousel results-small">
-        <div id="video-slider" class="slider" tabindex="0">
-          <div class="slider-container" id="sliderContainer" style="width: 2688px;"> <!-- 3 videos at a time, 448px width each -->
-            
-            <!-- GIF 1 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- GIF 2 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- GIF 3 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- GIF 4 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- GIF 5 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- GIF 6 -->
-            <div class="slider-item">
-              <div class="item">
-                <div class="twentytwenty-wrapper twentytwenty-horizontal">
-                  <div class="twentytwenty-container" data-orientation="horizontal">
-                    <img src="./static/images/christmas/base.gif" width="100%" class="twentytwenty-before" alt="Before">
-                    <img src="./static/images/christmas/ours.gif" width="100%" class="twentytwenty-after" alt="After">
-                    <div class="twentytwenty-overlay">
-                      <div class="twentytwenty-before-label" data-content="Before"></div>
-                      <div class="twentytwenty-after-label" data-content="After"></div>
-                    </div>
-                    <div class="twentytwenty-handle">
-                      <span class="twentytwenty-left-arrow"></span>
-                      <span class="twentytwenty-right-arrow"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <!-- Navigation buttons -->
-          <div class="slider-navigation-previous" onclick="moveSlider(-1)">
-            &#9664;
-          </div>
-          <div class="slider-navigation-next" onclick="moveSlider(1)">
-            &#9654;
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="sliderfa97823f-9735-4b12-80c0-df6f5405ea5d" class="slider" tabindex="0">
+    <div class="slider-container" style="opacity: 1; width: 9408px; transition: none; transform: translate3d(-1792px, 0px, 0px);"><div class="slider-item" data-slider-index="-4" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="-3" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="-2" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="-1" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item is-current" data-slider-index="0" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item is-slide-previous is-slide-next" data-slider-index="1" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="2" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="3" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="4" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="5" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="6" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="7" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="8" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="9" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="10" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/9-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/9-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="11" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">ModelScope+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/10-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/10-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="12" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/6-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/6-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="13" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/7-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/7-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="14" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/8-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/8-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="15" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/1-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/1-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div><div class="slider-item" data-slider-index="16" data-cloned="true" style="width: 448px;"><div class="item">
+          <div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-wrapper twentytwenty-horizontal"><div class="twentytwenty-container" data-orientation="horizontal" ratio="0.5556" style="height: 436px;">
+            <!-- <div class="desc">AnimateDiff+FreeInit</div> -->
+            <!-- <div class="twentytwenty-container" data-orientation="horizontal"> -->
+              <img src="./assets/gifs/3-1.gif" width="100%" class="twentytwenty-before" style="clip: rect(0px, 218px, 436px, 0px);">
+              <img src="./assets/gifs/3-2.gif" width="100%" class="twentytwenty-after" style="clip: rect(0px, 436px, 436px, 218px);">
+            <!-- </div> -->
+          <div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div><div class="twentytwenty-overlay"><div class="twentytwenty-before-label" data-content="Before"></div><div class="twentytwenty-after-label" data-content="After"></div></div><div class="twentytwenty-handle" style="left: 218px;"><span class="twentytwenty-left-arrow"></span><span class="twentytwenty-right-arrow"></span></div></div></div></div>
+        </div></div></div>
+  <div class="slider-navigation-previous"><svg viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375 "></polyline>
+    </svg></div>
+<div class="slider-navigation-next"><svg viewBox="0 0 50 80" xml:space="preserve">
+      <polyline fill="currentColor" stroke-width=".5em" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8 "></polyline>
+    </svg></div><div class="slider-pagination"><div class="slider-page" data-index="0"></div><div class="slider-page" data-index="1"></div><div class="slider-page" data-index="2"></div><div class="slider-page" data-index="3"></div><div class="slider-page" data-index="4"></div><div class="slider-page" data-index="5"></div><div class="slider-page" data-index="6"></div></div></div></div>
   </div>
-</section>
-
-<script src="jquery.min.js"></script> <!-- Include jQuery -->
-<script src="jquery.twentytwenty.js"></script> <!-- Include twentytwenty JS -->
-<script>
-  let currentIndex = 0;
-  const totalSlides = 6;
-  const itemsPerScreen = 3;
-  const slideWidth = 448;
-  
-  function moveSlider(direction) {
-    const sliderContainer = document.getElementById('sliderContainer');
-    currentIndex += direction;
-    
-    // Ensure the index is within the valid range
-    if (currentIndex < 0) {
-      currentIndex = totalSlides - itemsPerScreen;
-    } else if (currentIndex > totalSlides - itemsPerScreen) {
-      currentIndex = 0;
-    }
-    
-    const newTranslateX = -currentIndex * slideWidth;
-    sliderContainer.style.transform = `translateX(${newTranslateX}px)`;
-  }
-  
-  $(function(){
-    $(".twentytwenty-container").twentytwenty();
-  });
-</script>
+</div></section>
 
 <!-- End Teaser Video -->
 
