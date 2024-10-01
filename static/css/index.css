@@ -28,6 +28,10 @@ body {
   display: block;
 }
 
+.spacer {
+  height: 50px; /* Spacer block to add custom space between sections */
+}
+
 /* Description overlay inside the GIF at the bottom */
 .desc {
   position: absolute;
