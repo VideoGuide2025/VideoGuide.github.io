@@ -17,6 +17,21 @@ body {
   font-variant: small-caps;
 }
 
+.text-overlay {
+  position: absolute;
+  bottom: 10px; /* Adjust this to change where the text is positioned */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background behind the text */
+  padding: 5px;
+  border-radius: 5px;
+  width: auto;
+  text-align: center;
+}
+
 
 .teaser .hero-body {
   padding-top: 0;
