@@ -50,7 +50,6 @@
       /* Slider container styles */
       .slider {
           position: relative;
-          overflow: hidden;
           width: 100%;
           max-width: 1344px;
           margin: auto;
@@ -69,8 +68,23 @@
       /* twentytwenty-wrapper custom dimensions */
       .twentytwenty-container {
           width: 100%;
-          height: 300px;
+          height: 436px; /* Adjust this to fit your design */
+          display: block; /* Ensure the container is displayed */
+          position: relative;
       }
+
+      .twentytwenty-before, .twentytwenty-after {
+        display: block; /* Ensure the images are displayed */
+        width: 100%; 
+        height: auto;
+      }
+
+      .slider-item {
+          width: 448px; /* Adjust the width as needed */
+          display: block; /* Make sure each slider item is displayed */
+          flex-shrink: 0;
+      }
+
 
       /* Navigation styles */
       .slider-navigation-previous,
