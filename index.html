@@ -117,6 +117,10 @@
       z-index: 10; /* Ensure the arrows are above the videos */
     }
 
+    .text-with-margin {
+      margin-top: 10px; /* Adds 20px space above the text */
+    }
+
     .custom-prev {
         left: -5px; /* Positions the left arrow slightly outside the video container */
     }
@@ -181,7 +185,7 @@
 
 
 <!-- Hero Teaser -->
-<section class="hero is-light is-small">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <!-- <div id="results-carousel" class="carousel results-carousel"> -->
@@ -256,7 +260,7 @@
 <!-- End Teaser Video -->
 
 <!-- Paper abstract -->
-<section class="section hero">
+<section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -273,14 +277,14 @@
 
 
 <!-- Method -->
-<section class="section hero is-light">
+<section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-sixths">
         <h2 class="title is-3">Method</h2>
         <div class="content has-text-justified">
           <img src="static/images/fig_pipeline.jpg" alt="fig_pipeline"/>
-          <p style=" font-size:18px;">
+          <p style=" font-size:18px; margin-top:30px;">
             VideoGuide enhances temporal quality in video diffusion models without additional training by leveraging a pretrained model as a guide. 
             During inference, it uses the teacher model to provide a temporally consistent sample, which is interpolated with the student model's 
             output to improve consistency. This process is applied only in the early inference steps and includes a low-pass filter to refine 
@@ -298,7 +302,7 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   
   <div class="hero-body">
     <!-- <div class="container"> -->
@@ -875,22 +879,28 @@
             </div>
           </div>  
         </div>
+
+        <p class="text-with-margin">VideoGuide improves temporal consistency in text-to-video models like AnimateDiff and LaVie by leveraging an external guiding model. AnimateDiff provides personalization and controllability but struggles with temporal consistency, which VideoGuide enhances. Similarly, VideoGuide boosts LaVie's temporal consistency without compromising its other features like interpolation and super-resolution.</p>
+
+
       </div>
     </div>
 
     <div class="spacer"></div>
 
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop"  style="margin-top:30px;">      
+    <section class="hero is-small">
+  
+      <div class="hero-body">
+        <!-- <div class="container"> -->
+        <div class="container is-max-desktop"  style="margin-top:30px;">
 
-      <div class="section-title has-text-centered">
-        <h2 class="title is-4">7. Prior Distillation</h2>
-      </div>
-      
-      <div class="item pd-image">
-        <img src="./static/images/pd/PD.png" width="100%" />
-      </div>
+          <div class="section-title has-text-centered">
+            <h2 class="title is-4">7. Prior Distillation</h2>
+          </div>
+          
+          <div class="item pd-image">
+            <img src="./static/images/pd/PD.png" width="100%" />
+          </div>
            
     </div>
   </div>
