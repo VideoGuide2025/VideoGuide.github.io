@@ -47,67 +47,101 @@
   <link rel="stylesheet" href="./static/css/twentytwenty.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
-      .slider-container {
-          width: 100%;
-          max-width: 900px; /* 슬라이더의 최대 너비 */
-          margin: 0 auto;
-          overflow: hidden;
-          position: relative;
-      }
+    .custom-slider-container {
+        width: 100%;
+        max-width: 900px; /* 슬라이더의 최대 너비 */
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+    }
 
-      .slider {
-          display: flex;
-          transition: transform 0.5s ease-in-out;
-      }
+    .custom-slider {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
 
-      .slide {
-          min-width: 100%;
-          display: flex;
-          justify-content: space-between;
-      }
+    .custom-slide {
+        min-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-      .gif-container {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 30%; /* 각 GIF의 너비 (세 개가 한 줄에 들어감) */
-      }
+    .custom-gif-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
 
-      .gif-container img {
-          width: 100%;
-          height: auto;
-      }
+    .custom-gif-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%; /* 각 GIF의 너비 (세 개가 한 줄에 들어감) */
+    }
 
-      .caption {
-          text-align: center;
-          margin-top: 5px;
-      }
+    .custom-gif-container img {
+        width: 100%;
+        height: auto;
+    }
 
-      /* 좌우 화살표 */
-      .arrow {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.5);
-          color: white;
-          border: none;
-          font-size: 24px;
-          padding: 10px;
-          cursor: pointer;
-      }
+    .custom-caption {
+        text-align: center;
+        margin-top: 5px;
+        font-weight: bold; /* Makes the caption bold */
+        font-size: 18px; /* Increases the font size (adjust as needed) */
+    }
 
-      .prev {
-          left: 10px;
-      }
+    .custom-top-caption {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
 
-      .next {
-          right: 10px;
-      }
+    /* 좌우 화살표 */
+    .custom-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        font-size: 24px;
+        padding: 10px;
+        cursor: pointer;
+    }
 
-      /* GIF들 간의 간격 */
-      .gif-container:not(:last-child) {
-          margin-right: 20px;
-      }
+    .custom-prev {
+        left: 10px;
+    }
+
+    .custom-next {
+        right: 10px;
+    }
+
+    /* GIF들 간의 간격 */
+    .custom-gif-container:not(:last-child) {
+        margin-right: 20px;
+    }
+
+    .dots-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .active {
+        background-color: #717171;
+    }
   </style>
 </head>
 <body>
@@ -286,44 +320,130 @@
 
       <div class="spacer"></div>
 
-      <div class="slider-container">
-        <div class="slider" id="slider">
+      <div class="custom-slider-container">
+        <div class="custom-slider" id="custom-slider">
             <!-- 첫 번째 세트 -->
-            <div class="slide">
-                <div class="gif-container">
-                    <img src="./static/images/main/1_1.gif" alt="GIF 1">
-                    <div class="caption">Base</div>
-                </div>
-                <div class="gif-container">
-                    <img src="./static/images/main/1_2.gif" alt="GIF 2">
-                    <div class="caption">FreeInit</div>
-                </div>
-                <div class="gif-container">
-                    <img src="./static/images/main/2_1.gif" alt="GIF 3">
-                    <div class="caption">Ours</div>
+            <div class="custom-slide">
+                <div class="custom-top-caption">"A drone view of celebration with Christmas tree and fireworks."</div> <!-- Top caption added -->
+                <div class="custom-gif-wrapper">
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/1_1.gif" alt="GIF 1">
+                        <div class="custom-caption">Base</div>
+                    </div>
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/1_2.gif" alt="GIF 2">
+                        <div class="custom-caption">FreeInit</div>
+                    </div>
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/1_3.gif" alt="GIF 3">
+                        <div class="custom-caption">Ours</div>
+                    </div>
                 </div>
             </div>
             <!-- 두 번째 세트 -->
-            <div class="slide">
-                <div class="gif-container">
-                    <img src="./static/images/main/2_2.gif" alt="GIF 4">
-                    <div class="caption">Base</div>
-                </div>
-                <div class="gif-container">
-                    <img src="./static/images/main/3_1.gif" alt="GIF 5">
-                    <div class="caption">FreeInit</div>
-                </div>
-                <div class="gif-container">
-                    <img src="./static/images/main/3_2.gif" alt="GIF 6">
-                    <div class="caption">Ours</div>
+            <div class="custom-slide">
+                <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool"</div> <!-- Top caption added -->
+                <div class="custom-gif-wrapper">
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/2_1.gif" alt="GIF 4">
+                        <div class="custom-caption">Base</div>
+                    </div>
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/2_2.gif" alt="GIF 5">
+                        <div class="custom-caption">FreeInit</div>
+                    </div>
+                    <div class="custom-gif-container">
+                        <img src="./static/images/comp/2_3.gif" alt="GIF 6">
+                        <div class="custom-caption">Ours</div>
+                    </div>
                 </div>
             </div>
-            <!-- 추가 세트들 -->
-            <!-- 총 6 세트 -->
+
+            <div class="custom-slide">
+              <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool"</div> <!-- Top caption added -->
+              <div class="custom-gif-wrapper">
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_1.gif" alt="GIF 4">
+                      <div class="custom-caption">Base</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_2.gif" alt="GIF 5">
+                      <div class="custom-caption">FreeInit</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_3.gif" alt="GIF 6">
+                      <div class="custom-caption">Ours</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="custom-slide">
+              <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool"</div> <!-- Top caption added -->
+              <div class="custom-gif-wrapper">
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_1.gif" alt="GIF 4">
+                      <div class="custom-caption">Base</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_2.gif" alt="GIF 5">
+                      <div class="custom-caption">FreeInit</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_3.gif" alt="GIF 6">
+                      <div class="custom-caption">Ours</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="custom-slide">
+              <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool"</div> <!-- Top caption added -->
+              <div class="custom-gif-wrapper">
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_1.gif" alt="GIF 4">
+                      <div class="custom-caption">Base</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_2.gif" alt="GIF 5">
+                      <div class="custom-caption">FreeInit</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_3.gif" alt="GIF 6">
+                      <div class="custom-caption">Ours</div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="custom-slide">
+              <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool"</div> <!-- Top caption added -->
+              <div class="custom-gif-wrapper">
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_1.gif" alt="GIF 4">
+                      <div class="custom-caption">Base</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_2.gif" alt="GIF 5">
+                      <div class="custom-caption">FreeInit</div>
+                  </div>
+                  <div class="custom-gif-container">
+                      <img src="./static/images/comp/2_3.gif" alt="GIF 6">
+                      <div class="custom-caption">Ours</div>
+                  </div>
+              </div>
+            </div>
         </div>
+    
         <!-- 좌우 화살표 -->
-        <button class="arrow prev" onclick="moveSlide(-1)">&#10094;</button>
-        <button class="arrow next" onclick="moveSlide(1)">&#10095;</button>
+        <button class="custom-arrow custom-prev" onclick="moveCustomSlide(-1)">&#10094;</button>
+        <button class="custom-arrow custom-next" onclick="moveCustomSlide(1)">&#10095;</button>
+
+        <div class="dots-container">
+          <span class="dot" onclick="setCurrentSlide(0)"></span>
+          <span class="dot" onclick="setCurrentSlide(1)"></span>
+          <span class="dot" onclick="setCurrentSlide(2)"></span>
+          <span class="dot" onclick="setCurrentSlide(3)"></span>
+          <span class="dot" onclick="setCurrentSlide(4)"></span>
+          <span class="dot" onclick="setCurrentSlide(5)"></span>
+        </div>
       </div>
 
 
@@ -819,19 +939,39 @@ $(function(){
 </script>
 
 <script>
-  let currentIndex = 0;
-  const slider = document.getElementById('slider');
-  const totalSlides = document.querySelectorAll('.slide').length;
+    let currentCustomIndex = 0;
+    const customSlider = document.getElementById('custom-slider');
+    const totalCustomSlides = document.querySelectorAll('.custom-slide').length;
+    const dots = document.querySelectorAll('.dot');
 
-  function moveSlide(direction) {
-      currentIndex += direction;
-      if (currentIndex < 0) {
-          currentIndex = totalSlides - 1;
-      } else if (currentIndex >= totalSlides) {
-          currentIndex = 0;
-      }
-      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-  }
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.remove('active');
+            if (index === currentCustomIndex) {
+                dot.classList.add('active');
+            }
+        });
+    }
+
+    function moveCustomSlide(direction) {
+        currentCustomIndex += direction;
+        if (currentCustomIndex < 0) {
+            currentCustomIndex = totalCustomSlides - 1;
+        } else if (currentCustomIndex >= totalCustomSlides) {
+            currentCustomIndex = 0;
+        }
+        customSlider.style.transform = `translateX(-${currentCustomIndex * 100}%)`;
+        updateDots();
+    }
+
+    function setCurrentSlide(index) {
+        currentCustomIndex = index;
+        customSlider.style.transform = `translateX(-${currentCustomIndex * 100}%)`;
+        updateDots();
+    }
+
+    // 초기 활성 점 업데이트
+    updateDots();
 </script>
 
 <!-- Statcounter tracking code -->

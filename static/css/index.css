@@ -3,68 +3,6 @@ body {
 }
 
 
-.slider-container {
-  width: 100%;
-  max-width: 900px; /* 슬라이더의 최대 너비 */
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.gif-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 30%; /* 각 GIF의 너비 (세 개가 한 줄에 들어감) */
-}
-
-.gif-container img {
-  width: 100%;
-  height: auto;
-}
-
-.caption {
-  text-align: center;
-  margin-top: 5px;
-}
-
-/* 좌우 화살표 */
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
-}
-
-/* GIF들 간의 간격 */
-.gif-container:not(:last-child) {
-  margin-right: 20px;
-}
-
 .results-small {
   overflow: hidden;
   /* height: 400px; */
