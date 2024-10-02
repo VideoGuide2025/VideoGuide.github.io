@@ -105,23 +105,24 @@
 
     /* 좌우 화살표 */
     .custom-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
-        color: white;
-        border: none;
-        font-size: 24px;
-        padding: 10px;
-        cursor: pointer;
+      position: absolute;
+      top: 47%; /* Vertically centers the arrows */
+      transform: translateY(-50%); /* Centers vertically */
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 20px;
+      padding: 12px;
+      cursor: pointer;
+      z-index: 10; /* Ensure the arrows are above the videos */
     }
 
     .custom-prev {
-        left: 10px;
+        left: -5px; /* Positions the left arrow slightly outside the video container */
     }
 
     .custom-next {
-        right: 10px;
+        right: -5px; /* Positions the right arrow slightly outside the video container */
     }
 
     /* GIF들 간의 간격 */
