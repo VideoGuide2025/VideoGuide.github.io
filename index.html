@@ -90,11 +90,25 @@
         height: auto;
     }
 
+    .custom-gif-container-4vid {    /* GIF container for 4 videos (comparison part) */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertically centers the video within the container */
+        align-items: center;     /* Horizontally centers the video within the container */
+        width: 30%;              /* Keeps the same width as before for each video container */
+        height: 100%;            /* Ensures the height of the container is used */
+    }
+
+    .custom-gif-container-4vid img {
+        width: 100%;
+        height: auto;
+    }
+
     .custom-caption {
         text-align: center;
         margin-top: 5px;
         font-weight: bold; /* Makes the caption bold */
-        font-size: 18px; /* Increases the font size (adjust as needed) */
+        font-size: 15px; /* Increases the font size (adjust as needed) */
     }
 
     .custom-top-caption {
@@ -135,6 +149,10 @@
         margin-right: 40px;
     }
 
+    .custom-gif-container-4vid:not(:last-child) {
+        margin-right: 20px;
+    }
+
     .dots-container {
             text-align: center;
             margin-top: 20px;
@@ -152,6 +170,11 @@
 
     .active {
         background-color: #717171;
+    }
+
+    .small-normal-text {
+      font-weight: normal;
+      font-size: 10px; /* Adjust to desired size */
     }
   </style>
 </head>
@@ -330,17 +353,21 @@
             <div class="custom-slide">
                 <div class="custom-top-caption">"A drone view of celebration with Christmas tree and fireworks."</div> <!-- Top caption added -->
                 <div class="custom-gif-wrapper">
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/1_1.gif" alt="GIF 1">
                         <div class="custom-caption">Base</div>
                     </div>
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/1_2.gif" alt="GIF 2">
                         <div class="custom-caption">FreeInit</div>
                     </div>
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/1_3.gif" alt="GIF 3">
-                        <div class="custom-caption">Ours</div>
+                        <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                    </div>
+                    <div class="custom-gif-container-4vid">
+                        <img src="./static/images/comp/1_4.gif" alt="GIF 4">
+                        <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                     </div>
                 </div>
             </div>
@@ -348,17 +375,21 @@
             <div class="custom-slide">
                 <div class="custom-top-caption">"A cat wearing sunglasses and working as a lifeguard at a pool."</div> <!-- Top caption added -->
                 <div class="custom-gif-wrapper">
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/2_1.gif" alt="GIF 4">
                         <div class="custom-caption">Base</div>
                     </div>
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/2_2.gif" alt="GIF 5">
                         <div class="custom-caption">FreeInit</div>
                     </div>
-                    <div class="custom-gif-container">
+                    <div class="custom-gif-container-4vid">
                         <img src="./static/images/comp/2_3.gif" alt="GIF 6">
-                        <div class="custom-caption">Ours</div>
+                        <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                    </div>
+                    <div class="custom-gif-container-4vid">
+                        <img src="./static/images/comp/2_4.gif" alt="GIF 7">
+                        <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                     </div>
                 </div>
             </div>
@@ -366,17 +397,21 @@
             <div class="custom-slide">
               <div class="custom-top-caption">"Ashtray full of butts on table, smoke flowing on black background, close-up."</div> <!-- Top caption added -->
               <div class="custom-gif-wrapper">
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/3_1.gif" alt="GIF 4">
                       <div class="custom-caption">Base</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/3_2.gif" alt="GIF 5">
                       <div class="custom-caption">FreeInit</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/3_3.gif" alt="GIF 6">
-                      <div class="custom-caption">Ours</div>
+                      <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                  </div>
+                  <div class="custom-gif-container-4vid">
+                      <img src="./static/images/comp/3_4.gif" alt="GIF 7">
+                      <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                   </div>
               </div>
             </div>
@@ -384,17 +419,21 @@
             <div class="custom-slide">
               <div class="custom-top-caption">"A car accelerating to gain speed."</div> <!-- Top caption added -->
               <div class="custom-gif-wrapper">
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/4_1.gif" alt="GIF 4">
                       <div class="custom-caption">Base</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/4_2.gif" alt="GIF 5">
                       <div class="custom-caption">FreeInit</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/4_3.gif" alt="GIF 6">
-                      <div class="custom-caption">Ours</div>
+                      <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                  </div>
+                  <div class="custom-gif-container-4vid">
+                      <img src="./static/images/comp/4_4.gif" alt="GIF 7">
+                      <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                   </div>
               </div>
             </div>
@@ -402,17 +441,21 @@
             <div class="custom-slide">
               <div class="custom-top-caption">"A horse bending down to drink water from a river."</div> <!-- Top caption added -->
               <div class="custom-gif-wrapper">
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/5_1.gif" alt="GIF 4">
                       <div class="custom-caption">Base</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/5_2.gif" alt="GIF 5">
                       <div class="custom-caption">FreeInit</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/5_3.gif" alt="GIF 6">
-                      <div class="custom-caption">Ours</div>
+                      <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                  </div>
+                  <div class="custom-gif-container-4vid">
+                      <img src="./static/images/comp/5_4.gif" alt="GIF 7">
+                      <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                   </div>
               </div>
             </div>
@@ -420,17 +463,21 @@
             <div class="custom-slide">
               <div class="custom-top-caption">"A space shuttle launching into orbit, with flames and smoke billowing out from the engines."</div> <!-- Top caption added -->
               <div class="custom-gif-wrapper">
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/6_1.gif" alt="GIF 4">
                       <div class="custom-caption">Base</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/6_2.gif" alt="GIF 5">
                       <div class="custom-caption">FreeInit</div>
                   </div>
-                  <div class="custom-gif-container">
+                  <div class="custom-gif-container-4vid">
                       <img src="./static/images/comp/6_3.gif" alt="GIF 6">
-                      <div class="custom-caption">Ours</div>
+                      <div class="custom-caption">Ours <span class="small-normal-text">(Self-Guided)</span></div>
+                  </div>
+                  <div class="custom-gif-container-4vid">
+                      <img src="./static/images/comp/6_4.gif" alt="GIF 7">
+                      <div class="custom-caption">Ours <span class="small-normal-text">(External-Guided)</span></div>
                   </div>
               </div>
             </div>
